@@ -1,12 +1,14 @@
 describe('Form Input', () => {
-  it('Focuses the input on load', () => {
+  beforeEach(() => {
     cy.visit('/')
+  })
+
+  it('Focuses the input on load', () => {
     cy.focused().should('have.class', 'new-todo')
   })
 
-  it.only('Accepts input', () => {
+  it('Accepts input', () => {
     const typedText = 'New todo'
-    cy.visit('/')
     cy
       .get('.new-todo')
       .type(typedText)
