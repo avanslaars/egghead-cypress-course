@@ -11,8 +11,10 @@ describe('List Item Behavior', () => {
 
     cy.seedAndVisit()
 
+    cy.get('.todo-list li').as('list')
+
     cy
-      .get('.todo-list li')
+      .get('@list')
       .first()
       .find('.destroy')
       .invoke('show')
@@ -20,6 +22,6 @@ describe('List Item Behavior', () => {
 
     cy.wait('@delete')
 
-    cy.get('.todo-list li').should('have.length', 3)
+    cy.get('@list').should('have.length', 3)
   })
 })
