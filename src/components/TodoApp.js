@@ -50,6 +50,13 @@ export default class TodoApp extends Component {
     updateTodo(updated)
       .then(({ data }) => {
         const todos = this.state.todos.map(t => (t.id === data.id ? data : t))
+        // To practice debugging, comment out the line above and uncomment these
+        // const targetIndex = this.state.todos.findIndex(t => t.id === data.id)
+        // const todos = [
+        //   ...this.state.todos.slice(0, targetIndex),
+        //   data,
+        //   ...this.state.todos.slice(targetIndex) /* <-- the bug! */
+        // ]
         this.setState({ todos: todos })
       })
       .catch(() => this.setState({ error: true }))
