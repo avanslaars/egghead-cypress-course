@@ -25,7 +25,7 @@ describe('List Item Behavior', () => {
     cy.get('@list').should('have.length', 3)
   })
 
-  it.only('Marks an item complete', () => {
+  it('Marks an item complete', () => {
     cy.server()
     cy.seedAndVisit()
     cy.fixture('todos').then(todos => {
