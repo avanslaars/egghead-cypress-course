@@ -10,5 +10,12 @@ describe('Form input', function () {
             .and('have.attr', 'placeholder', 'What needs to be done?')
             .and('be.empty');
     });
-});
 
+    it('should type new todo into the input field', function () {
+        const typedText = 'New todo';
+        cy.visit('/');
+        cy.get('.new-todo')
+            .type(typedText)
+            .should('have.value', typedText);
+    });
+});
