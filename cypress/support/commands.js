@@ -31,4 +31,4 @@ Cypress.Commands.add('seedAndVisit', (seedData = 'fixture:todos') => {
   cy.visit('/')
 
   cy.wait('@load')
-})
+});

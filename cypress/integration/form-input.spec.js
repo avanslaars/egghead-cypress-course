@@ -43,4 +43,16 @@ describe('Form input', function () {
         cy.get('.todo-list > li')
             .should('have.length', 4);
     });
+
+    it('should use Cypress commands to simplify the code: using default value', function () {
+        cy.seedAndVisit();
+        cy.get('.todo-list > li')
+            .should('have.length', 4);
+    });
+
+    it('should use Cypress commands to simplify the code: using defined value', function () {
+        cy.seedAndVisit([]);
+        cy.get('.todo-list > li')
+            .should('have.length', 0);
+    });
 });
