@@ -32,4 +32,15 @@ describe('Form input', function () {
         cy.get('.todo-list > li')
             .should('have.length', 4);
     });
+
+    it('should have four initial todos and waiting loaded', function () {
+        cy.server();
+        cy.route('GET', '/api/todos', 'fixture:todos')
+            .as('loadingTodos');
+        cy.visit('/');
+        cy.wait('@loadingTodos');
+
+        cy.get('.todo-list > li')
+            .should('have.length', 4);
+    });
 });
