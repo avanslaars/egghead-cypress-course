@@ -126,4 +126,29 @@ describe('Form input', function () {
         cy.get('.todo-list li')
             .should('have.length', 3);
     });
+
+    it('Using alias for the DOM element', function () {
+        cy.server();
+        cy.route({
+            method: 'DELETE',
+            url: '/api/todos/*',
+            response: {}
+        }).as('delete');
+
+        cy.seedAndVisit();
+
+        cy.get('.todo-list li')
+            .as('list');
+
+        cy.get('@list')
+            .first()
+            .find('.destroy')
+            .invoke('show') // Make the hidden button appear
+            .click();
+
+        cy.wait('@delete');
+
+        cy.get('@list')
+            .should('have.length', 3);
+    });
 });
