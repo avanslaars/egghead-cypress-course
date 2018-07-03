@@ -121,6 +121,8 @@ describe('Form input', function () {
             .invoke('show') // Make the hidden button appear
             .click();
 
+        cy.wait('@delete');
+
         cy.get('.todo-list li')
             .should('have.length', 3);
     });
