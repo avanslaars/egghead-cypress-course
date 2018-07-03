@@ -151,4 +151,21 @@ describe('Form input', function () {
         cy.get('@list')
             .should('have.length', 3);
     });
+
+    it('should Footer todos', function () {
+        cy.seedAndVisit('fixture:mixed_todos');
+
+        const filters = [
+            { link: 'Active', expectedLength: 2 },
+            { link: 'Completed', expectedLength: 2 },
+            { link: 'All', expectedLength: 4 }
+        ];
+
+        cy.wrap(filters)
+            .each(filter => {
+                // contains(): find the element contains the text
+                cy.contains(filter.link).click();
+                cy.get('.todo-list li').should('have.length', filter.expectedLength);
+            })
+    });
 });
