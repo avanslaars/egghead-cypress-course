@@ -3,7 +3,7 @@ import React from 'react'
 export default props => (
   <form onSubmit={props.handleTodoSubmit}>
     <input
-      type="text"
+      type='text'
       autoFocus
       value={props.currentTodo}
       onChange={props.handleNewTodoChange}

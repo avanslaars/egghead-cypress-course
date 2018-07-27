@@ -1,3 +1,34 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": 2,
+      "name": "Buy Eggs",
+      "isComplete": false
+    },
+    {
+      "id": 3,
+      "name": "Buy Bread",
+      "isComplete": false
+    },
+    {
+      "id": 4,
+      "name": "Make French Toast",
+      "isComplete": false
+    },
+    {
+      "name": "awef",
+      "isComplete": false,
+      "id": 5
+    },
+    {
+      "name": "weg",
+      "isComplete": false,
+      "id": 6
+    },
+    {
+      "name": "five",
+      "isComplete": false,
+      "id": 7
+    }
+  ]
 }
